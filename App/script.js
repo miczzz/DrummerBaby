@@ -1,9 +1,10 @@
+// Ob die Instrumente bereits benutzt werden
 var tom1busy = false;
 var tom2busy = false;
 var hihatbusy = false;
-var beckenbusy = true;
+var beckenbusy = false;
 var kickbusy = false;
-var snarebusy = true;
+var snarebusy = false;
 
 var activeColor = 'lightgreen';
 
@@ -107,29 +108,29 @@ $(document).ready(function(){
 var checkAvailability = function(){
   $(document).ready(function(){
     if(tom1busy) {
-    $('#tom1-btn').prop('disabled',true);
     $('#tom1-btn').text('busy');
+    $('#tom1-btn').prop('disabled',true);
     // to enable: $('#Button').prop('disabled', false);
     }
     if(tom2busy) {
-    $('#tom2-btn').prop('disabled',true);
     $('#tom2-btn').text('busy');
+    $('#tom2-btn').prop('disabled',true);
     }
     if(hihatbusy) {
-    $('#hihat-btn').prop('disabled',true);
     $('#hihat-btn').text('busy');
+    $('#hihat-btn').prop('disabled',true);
     }
     if(beckenbusy) {
-    $('#becken-btn').prop('disabled',true);
     $('#becken-btn').text('busy');
+    $('#becken-btn').prop('disabled',true);
     }
     if(kickbusy) {
-    $('#kick-btn').prop('disabled',true);
     $('#kick-btn').text('busy');
+    $('#kick-btn').prop('disabled',true);
     }
     if(snarebusy) {
-    $('#snare-btn').prop('disabled',true);
     $('#snare-btn').text('busy');
+    $('#snare-btn').prop('disabled',true);
     }
 });
 }
