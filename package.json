@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/miczzz/DrummerBaby#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
     "buildpacks": [
     {
       "url": "https://github.com/heroku/heroku-buildpack-pgbouncer"
