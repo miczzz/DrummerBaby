@@ -1,0 +1,30 @@
+{
+  "name": "DrummerBaby",
+  "description": "\"# DrummerBaby\"",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miczzz/DrummerBaby.git"
+  },
+  "version": "1.0.0",
+  "main": "connect.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miczzz/DrummerBaby/issues"
+  },
+  "homepage": "https://github.com/miczzz/DrummerBaby#readme",
+  "dependencies": {},
+  "devDependencies": {}
+    "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-pgbouncer"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
