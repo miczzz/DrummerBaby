@@ -1,1 +1,1 @@
-web: node App/connect.js
+web: node index.js
