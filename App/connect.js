@@ -1,37 +1,49 @@
-src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"
-//Using the HiveMQ public Broker, with a random client Id
- var client = new Messaging.Client("broker.mqttdashboard.com", 8000, "myclientid_" + parseInt(Math.random() * 100, 10));
+    var client = new Paho.MQTT.Client("m20.cloudmqtt.com", Number(38316), "client_1");
+    // set callback handlers
+    client.onConnectionLost = onConnectionLost;
+    client.onMessageArrived = onMessageArrived;
 
- //Gets  called if the websocket/mqtt connection gets disconnected for any reason
- client.onConnectionLost = function (responseObject) {
-     //Depending on your scenario you could implement a reconnect logic here
-     alert("connection lost: " + responseObject.errorMessage);
- };
+    // connect the client
+    var options = {
+            useSSL: true,
+            userName: "bfxnalwu",
+            password: "9ObBXGyvlQm1",
+            cleanSession: true,
+            onSuccess:onConnect,
+            onFailure:doFail
+          }
 
- //Gets called whenever you receive a message for your subscriptions
- client.onMessageArrived = function (message) {
-     //Do something with the push message you received
-     $('#messages').append('<span>Topic: ' + message.destinationName + '  | ' + message.payloadString + '</span><br/>');
- };
+    //client.connect({onSuccess:onConnect});
+    client.connect(options);
 
- //Connect Options
- var options = {
-     timeout: 3,
-     //Gets Called if the connection has successfully been established
-     onSuccess: function () {
-         alert("Connected");
-     },
-     //Gets Called if the connection could not be established
-     onFailure: function (message) {
-         alert("Connection failed: " + message.errorMessage);
-     }
- };
+    // called when the client connects
+    function onConnect() {
+      // Once a connection has been made, make a subscription and send a       message.
+	  alert("Connected!");
+     debugger;
+        console.log("onConnect");
+      client.subscribe("outTopic");
+      message = new Paho.MQTT.Message("Hello");
+      message.destinationName = "World";
+      client.send(message);
+    }
 
- //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
- var publish = function (payload, topic, qos) {
-     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
-     var message = new Messaging.Message(payload);
-     message.destinationName = topic;
-     message.qos = qos;
-     client.send(message);
- }
+    function doFail(){
+        debugger;
+        console.log("dofail");
+		alert("failure");
+    }
+    // called when the client loses its connection
+    function onConnectionLost(responseObject) {
+      if (responseObject.errorCode !== 0) {
+        console.log("onConnectionLost:"+responseObject.errorMessage);
+      }
+    }
+
+    // called when a message arrives
+    function onMessageArrived(message) {
+      console.log("onMessageArrived:"+message.payloadString);
+      var msg = message.payloadString;
+      debugger;
+
+    }
