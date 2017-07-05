@@ -1,31 +1,32 @@
-var unique = require('uniq');
-    var client = new Paho.MQTT.Client("m20.cloudmqtt.com", Number(38316), "client_1");
+    var client = new Paho.MQTT.Client("diginet.mt.haw-hamburg.de", Number(8000),  "/mqtt", "client_1");
+ 
     // set callback handlers
     client.onConnectionLost = onConnectionLost;
-    client.onMessageArrived = onMessageArrived;
+    //client.onMessageArrived = onMessageArrived;
 
-    // connect the client
+
     var options = {
-            useSSL: true,
-            userName: "bfxnalwu",
-            password: "9ObBXGyvlQm1",
+            useSSL: false,
+            userName: "haw",
+            password: "schuh+-0",
             cleanSession: true,
             onSuccess:onConnect,
             onFailure:doFail
           }
 
     //client.connect({onSuccess:onConnect});
-    client.connect(options);
+    //client.connect(options);
 
     // called when the client connects
     function onConnect() {
       // Once a connection has been made, make a subscription and send a       message.
 	  alert("Connected!");
+	  client.subscribe("itsdrummerbaby");
      debugger;
-        console.log("onConnect");
+      console.log("onConnect");
       client.subscribe("outTopic");
-      message = new Paho.MQTT.Message("Hello");
-      message.destinationName = "World";
+      message = new Paho.MQTT.Message("Well, hello there!");
+      message.destinationName = "itsdrummerbaby";
       client.send(message);
     }
 
@@ -42,9 +43,19 @@ var unique = require('uniq');
     }
 
     // called when a message arrives
-    function onMessageArrived(message) {
+    client.onMessageArrived = function (message) {
+	  alert('message incoming');
       console.log("onMessageArrived:"+message.payloadString);
       var msg = message.payloadString;
+	  $('#messages').append('<span> Yep </span><br/>');
+	  $('#messages').append('<span> *Received* Topic: '+ msg + '</span><br/>');
       debugger;
-
     }
+	
+	 var publish = function (payload, topic, qos) {
+     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
+     var message = new Paho.MQTT.Message(payload);
+     message.destinationName = topic;
+     message.qos = qos;
+     client.send(message);
+ }
