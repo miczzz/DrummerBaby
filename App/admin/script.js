@@ -6,36 +6,16 @@ var beckenbusy = false;
 var kickbusy = false;
 var snarebusy = false;
 
-var randomColorR = 255;
-var randomColorG = 0;
-var randomColorB = 0;
-
 var activeColor = 'lightgreen';
-var choiceMade = false;
 
 var activateChoice = function(name){
 $(document).ready(function(){
-
-	if(choiceMade == false){
     //document.getElementById('becken-btn').style.backgroundColor = activeColor;
     if(document.getElementById(name).style.backgroundColor != activeColor){
     document.getElementById(name).style.backgroundColor = activeColor;
     } else {
-    document.getElementById(name).style.backgroundColor = 'darkgrey';
-  }}
-  else {
-  	randomizeColors();
-	var rgb = "rgb("+randomColorR+","+randomColorG+","+randomColorB+")";
-	document.getElementById(name).style.backgroundColor = rgb;
-	//$("#phone").css("background-color", rgb); 
+    document.getElementById(name).style.backgroundColor = 'grey';
   }
-});
-}
-
-var weiterMachen = function(name){
-$(document).ready(function(){
- choiceMade = true;
-	
 });
 }
 
@@ -119,10 +99,6 @@ $(document).ready(function(){
     $('#hihat-btn').click(function(){
     activateChoice('hihat-btn');
     });
-	
-	$('#weiter-btn').click(function(){
-    weiterMachen();
-    });
 
     checkAvailability();
 });
@@ -182,16 +158,14 @@ var activateAll = function(){
 });
 }
 
-
-
 var deactivateAll = function(){
   $(document).ready(function(){
-  document.getElementById('becken-btn').style.backgroundColor = 'darkgrey';
-  document.getElementById('tom1-btn').style.backgroundColor = 'darkgrey';
-  document.getElementById('tom2-btn').style.backgroundColor = 'darkgrey';
-  document.getElementById('kick-btn').style.backgroundColor = 'darkgrey';
-  document.getElementById('snare-btn').style.backgroundColor = 'darkgrey';
-  document.getElementById('hihat-btn').style.backgroundColor = 'darkgrey';
+  document.getElementById('becken-btn').style.backgroundColor = 'grey';
+  document.getElementById('tom1-btn').style.backgroundColor = 'grey';
+  document.getElementById('tom2-btn').style.backgroundColor = 'grey';
+  document.getElementById('kick-btn').style.backgroundColor = 'grey';
+  document.getElementById('snare-btn').style.backgroundColor = 'grey';
+  document.getElementById('hihat-btn').style.backgroundColor = 'grey';
 });
 }
 
@@ -213,12 +187,3 @@ $(document).ready(function(){
     deactivateAll();
     });
 });
-
-var randomizeColors = function(){
-	$(document).ready(function(){
-		randomColorR = Math.floor(Math.random() * 255);
-		randomColorG = Math.floor(Math.random() * 255);
-		randomColorB = Math.floor(Math.random() * 255);
-	});
-}
-
