@@ -87,13 +87,6 @@
 	publish('1','itsdrummerbaby/hihat',2);
  }
  
-// Instrument wird in einem bestimmten Intervall abgespielt
-/*   var intervalInstrument = function(instrument, interval){
-	var thisInstrument = instrument;
-	var thisInterval = interval;
-	setInterval(thisInstrument, thisInterval);
- } */
- 
 
  
  var stopDemo = function(){

@@ -22,13 +22,11 @@ td {
 }
 
 button{
+	border-radius: 25px;
 	flex-wrap: wrap;
 	background-color: purple;
 	font-size: 270%;
-	width: 87%;
-	height: 80%;
-	line-height: 95%;
-	min-height: 100px;
-	min-width: 100px;
+	min-height: 175px;
+	min-width: 175px;
 	
 }
