@@ -11,22 +11,19 @@ table{
     height: 80vh;
 	float: center;
 }
-td {
-	text-align:center;
-	line-height: 50%;
-	height: 80%;
-	width: 75%;
-	color: black;
-	background-color: black;
-	float: center;
+
+.wrapper {
+    text-align: center;
 }
 
 button{
+    top: 50%;
 	border-radius: 25px;
 	flex-wrap: wrap;
 	background-color: purple;
 	font-size: 270%;
 	min-height: 175px;
 	min-width: 175px;
-	
+	height: 80vh;
+	width: 70vh;
 }
