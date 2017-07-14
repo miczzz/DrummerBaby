@@ -23,23 +23,7 @@
 	var beckenBeat;
 	
 	
-    var client = new Paho.MQTT.Client("diginet.mt.haw-hamburg.de", Number(8000), "/mqtt", "myclientid_" + parseInt(Math.random() * 100, 10));
- 
-    // set callback handlers
-    client.onConnectionLost = onConnectionLost;
-    //client.onMessageArrived = onMessageArrived;
-
-
-    var options = {
-            useSSL: false,
-            userName: "haw",
-            password: "schuh+-0",
-            cleanSession: true,
-            onSuccess:onConnect,
-            onFailure:doFail
-          }
-		  
-/* 	    var client = new Paho.MQTT.Client("m20.cloudmqtt.com", Number(38316), "client_1");
+    var client = new Paho.MQTT.Client("m20.cloudmqtt.com", Number(38316), "myclientid_" + parseInt(Math.random() * 100, 10));
     // set callback handlers
     client.onConnectionLost = onConnectionLost;
     //client.onMessageArrived = onMessageArrived;
@@ -52,10 +36,7 @@
             cleanSession: true,
             onSuccess:onConnect,
             onFailure:doFail
-          } */
-
-    //client.connect({onSuccess:onConnect});
-    //client.connect(options);
+          }
 
     // called when the client connects
     function onConnect() {

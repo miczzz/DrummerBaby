@@ -1,33 +1,28 @@
-    var client = new Paho.MQTT.Client("diginet.mt.haw-hamburg.de", Number(8000), "/mqtt", "myclientid_" + parseInt(Math.random() * 100, 10));
- 
+    var client = new Paho.MQTT.Client("m20.cloudmqtt.com", Number(38316), "myclientid_" + parseInt(Math.random() * 100, 10));
     // set callback handlers
     client.onConnectionLost = onConnectionLost;
     //client.onMessageArrived = onMessageArrived;
-	 
 
+    // connect the client
     var options = {
-	    timeout: 3,
-            useSSL: false,
-            userName: "haw",
-            password: "schuh+-0",
+            useSSL: true,
+            userName: "bfxnalwu",
+            password: "9ObBXGyvlQm1",
             cleanSession: true,
-			keepAliveInterval: 300,
             onSuccess:onConnect,
-			onFailure:doFail
+            onFailure:doFail
           }
 
     //client.connect({onSuccess:onConnect});
     //client.connect(options);
 
-function myConnect(options) {
-	client.connect(options);
-}
     // called when the client connects
     function onConnect() {
       // Once a connection has been made, make a subscription and send a       message.
-	//  alert("Connected!");
+	  alert("Connected!");
 	  client.subscribe("itsdrummerbaby");
 	  client.subscribe("itsdrummerbaby/disconnect");
+     debugger;
       console.log("onConnect");
       // client.subscribe("outTopic");
       // message = new Paho.MQTT.Message("Well, hello there!");
@@ -36,6 +31,7 @@ function myConnect(options) {
     }
 
     function doFail(){
+        debugger;
         console.log("dofail");
 		alert("failure");
     }
@@ -59,6 +55,7 @@ function myConnect(options) {
 	  }
 /* 	  $('#messages').append('<span> Yep </span><br/>');
 	  $('#messages').append('<span> *Received* Topic: '+ msg + '</span><br/>'); */
+      debugger;
     }
 	
 	 var publish = function (payload, topic, qos) {
