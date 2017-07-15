@@ -1,39 +1,19 @@
-// Ob die Instrumente bereits benutzt werden
-var tom1busy = false;
-var tom2busy = false;
-var hihatbusy = false;
-var beckenbusy = false;
-var kickbusy = false;
-var snarebusy = false;
-
-var randomColorR = 255;
-var randomColorG = 0;
-var randomColorB = 0;
-
 var activeColor = 'khaki';
-var choiceMade = false;
 
+// Instrument aktivieren/deaktivieren
 var activateChoice = function(name){
 $(document).ready(function(){
 
-	if(choiceMade == false){
-    //document.getElementById('becken-btn').style.backgroundColor = activeColor;
     if(document.getElementById(name).style.backgroundColor != activeColor){
     document.getElementById(name).style.backgroundColor = activeColor;
     } else {
     document.getElementById(name).style.backgroundColor = 'darkgrey';
-  }}
-  else {
-	//$("#phone").css("background-color", rgb); 
   }
 });
 }
 
 var chooseInstruments = function(){
 $(document).ready(function(){
-  // aufräumen
-    //$('#choice-table').empty();
-   // $('#choice-table').css("visibility", "hidden");
   // neue Tabelle mit Auswahl erstellen
     createTable();
 });
@@ -45,10 +25,12 @@ $(document).ready(function(){
 var createTable = function(){
   $(document).ready(function(){
 
-    //$("#weiter").empty();
+	// Buttons zur Auswahl nach Auswahl deaktivieren
     $("#weiter").css("visibility", "hidden");
     $("#alle").css("visibility", "hidden");
     $("#keine").css("visibility", "hidden");
+	
+	// Buttons der nicht ausgewählten Instrumente verstecken
   if(document.getElementById('tom2-btn').style.backgroundColor == activeColor){
   $("#tom2-btn").css("visibility", "visible"); 
 } else {
@@ -63,7 +45,6 @@ var createTable = function(){
   $("#tom1-btn").css("visibility", "visible"); 
 } else {
   $("#tom1-btn").css("visibility", "hidden"); 
-  //$("#tom1-td").empty();
 }
   if(document.getElementById('kick-btn').style.backgroundColor == activeColor){
   $("#kick-btn").css("visibility", "visible"); 
@@ -110,61 +91,19 @@ $(document).ready(function(){
     activateChoice('hihat-btn');
     });
 
-    checkAvailability();
 });
 
 
-// checken, ob die Instrumente bereits genutzt werden (Verfügbarkeiten müssen dann im Netzwerk gespeichert werden)
-var checkAvailability = function(){
-  $(document).ready(function(){
-    if(tom1busy) {
-    $('#tom1-btn').text('busy');
-    $('#tom1-btn').prop('disabled',true);
-    // to enable: $('#Button').prop('disabled', false);
-    }
-    if(tom2busy) {
-    $('#tom2-btn').text('busy');
-    $('#tom2-btn').prop('disabled',true);
-    }
-    if(hihatbusy) {
-    $('#hihat-btn').text('busy');
-    $('#hihat-btn').prop('disabled',true);
-    }
-    if(beckenbusy) {
-    $('#becken-btn').text('busy');
-    $('#becken-btn').prop('disabled',true);
-    }
-    if(kickbusy) {
-    $('#kick-btn').text('busy');
-    $('#kick-btn').prop('disabled',true);
-    }
-    if(snarebusy) {
-    $('#snare-btn').text('busy');
-    $('#snare-btn').prop('disabled',true);
-    }
-});
-}
+
 
 var activateAll = function(){
   $(document).ready(function(){
-  if(!beckenbusy){
   document.getElementById('becken-btn').style.backgroundColor = activeColor;
-  }
-  if(!tom1busy){
   document.getElementById('tom1-btn').style.backgroundColor = activeColor;
-  }
-  if(!tom2busy){
   document.getElementById('tom2-btn').style.backgroundColor = activeColor;
-  }
-  if(!kickbusy){
   document.getElementById('kick-btn').style.backgroundColor = activeColor;
-  }
-  if(!snarebusy){
   document.getElementById('snare-btn').style.backgroundColor = activeColor;
-  }
-  if(!hihatbusy){
   document.getElementById('hihat-btn').style.backgroundColor = activeColor;
-  }
 });
 }
 

@@ -16,10 +16,6 @@
     height: 10vh;
 }
 
-#specialtable button{
-
-}
-
 button{
 	flex-wrap: wrap;
 	align-items: flex-start;
@@ -30,7 +26,6 @@ button{
 }
 td {
 	text-align:center;
-	/*height:500px;*/
 	font-size:36px;
 	line-height: 50%;
 	color: black;
@@ -39,7 +34,6 @@ td {
 
 body {
 	background-color: white;
-
 }
 
 
@@ -70,7 +64,7 @@ body {
 }
 
 #hihat-btn{
-	background-image: url('graphics/Hi_Hat.png'), url('https://miczzz.github.io/MySandbox/drummerapp/App/graphics/Hi_Hat.png');
+	background-image: url('graphics/Hi_Hat.png');
 	background-size: 100% 100%;
 	display: inline-block;
 }
@@ -94,10 +88,3 @@ body {
 }
 
 
-#weiter-btn{
-	background-color: yellow;
-}
-
-#chosen-table{
-	visibility: hidden;
-}
