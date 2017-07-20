@@ -1,3 +1,6 @@
+// Nur für uns als Spielerei / mögliche Weiterentwicklung und um Leute rauskicken zu können
+
+
 // Ob die Instrumente bereits benutzt werden
 var tom1busy = false;
 var tom2busy = false;
@@ -10,7 +13,6 @@ var activeColor = 'lightgreen';
 
 var activateChoice = function(name){
 $(document).ready(function(){
-    //document.getElementById('becken-btn').style.backgroundColor = activeColor;
     if(document.getElementById(name).style.backgroundColor != activeColor){
     document.getElementById(name).style.backgroundColor = activeColor;
     } else {
@@ -35,7 +37,6 @@ $(document).ready(function(){
 var createTable = function(){
   $(document).ready(function(){
 
-    //$("#weiter").empty();
     $("#weiter").css("visibility", "hidden");
     $("#alle").css("visibility", "hidden");
     $("#keine").css("visibility", "hidden");
@@ -53,7 +54,6 @@ var createTable = function(){
   $("#tom1-btn").css("visibility", "visible"); 
 } else {
   $("#tom1-btn").css("visibility", "hidden"); 
-  //$("#tom1-td").empty();
 }
   if(document.getElementById('kick-btn').style.backgroundColor == activeColor){
   $("#kick-btn").css("visibility", "visible"); 
@@ -104,7 +104,7 @@ $(document).ready(function(){
 });
 
 
-// checken, ob die Instrumente bereits genutzt werden (Verfügbarkeiten müssen dann im Netzwerk gespeichert werden)
+// checken, ob die Instrumente bereits genutzt werden - wird nicht genutzt (doch nicht so nützlich)
 var checkAvailability = function(){
   $(document).ready(function(){
     if(tom1busy) {

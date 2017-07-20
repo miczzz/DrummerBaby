@@ -38,25 +38,7 @@
             onSuccess:onConnect,
             onFailure:doFail
           }
-		  
-/* 	    var client = new Paho.MQTT.Client("m20.cloudmqtt.com", Number(38316), "client_1");
-    // set callback handlers
-    client.onConnectionLost = onConnectionLost;
-    //client.onMessageArrived = onMessageArrived;
-
-    // connect the client
-    var options = {
-            useSSL: true,
-            userName: "bfxnalwu",
-            password: "9ObBXGyvlQm1",
-            cleanSession: true,
-            onSuccess:onConnect,
-            onFailure:doFail
-          } */
-
-    //client.connect({onSuccess:onConnect});
-    //client.connect(options);
-
+	
     // called when the client connects
     function onConnect() {
       // Once a connection has been made, make a subscription and send a       message.
@@ -154,13 +136,7 @@
 	publish('1','itsdrummerbaby/hihat',2);
  }
  
-// Instrument wird in einem bestimmten Intervall abgespielt
-/*   var intervalInstrument = function(instrument, interval){
-	var thisInstrument = instrument;
-	var thisInterval = interval;
-	setInterval(thisInstrument, thisInterval);
- } */
- 
+
 
  
  var stopDemo = function(){
@@ -170,24 +146,13 @@
  
  // siehe https://www.w3schools.com/js/js_timing.asp
  var demoPlay = function(){
-	//playKick();
-	// setTimeout(playTom2(), 15000)
- 	// setTimeout(playTom1(), 15000)
-    // setTimeout(function, milliseconds)
-    // Executes a function, after waiting a specified number of milliseconds.
 	
-	//intervalInstrument(playTom1(), 500);
-	//intervalInstrument();
 	intervalInstrument1 = setInterval(playHihat, 15000);
 	intervalInstrument2 = setInterval(playKick, 7000);
 	intervalInstrument3 = setInterval(playSnare, 11000);
     intervalInstrument4 = setInterval(playTom1, 3000);
 	intervalInstrument5 = setInterval(playTom2, 8000);
 	intervalInstrument6 = setInterval(playBecken, 21500);
-	
-	
-	var second = 1000;
-	//setTimeout(stopDemo, 360*second);
 
 }
 
